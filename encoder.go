@@ -121,6 +121,11 @@ func FormatDateTimeField(key string, val time.Time) (string, string) {
 	return key + ";VALUE=DATE-TIME", val.Format("20060102T150405")
 }
 
+// FormatDateTimeField in the form "X-MYDATETIME;VALUE=DATE-TIME:20120901T130000"
+func FormatDateTimeWithTimeZone(key, tz string, val time.Time) (string, string) {
+	return key + ";TZID=" + tz, val.Format("20060102T150405")
+}
+
 // FormatDateTime as "DTSTART:19980119T070000Z"
 func FormatDateTime(key string, val time.Time) (string, string) {
 	return key, val.Format("20060102T150405Z")
